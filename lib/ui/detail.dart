@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:async';
-import 'package:myusers_flutter/services/user.service.dart';
-import 'package:myusers_flutter/models/user.dart';
-import 'package:myusers_flutter/helpers.dart';
+import 'package:myusers_cupertino_flutter/services/user.service.dart';
+import 'package:myusers_cupertino_flutter/models/user.dart';
+import 'package:myusers_cupertino_flutter/helpers.dart';
 import 'edit.dart';
 
 class Detail extends StatefulWidget {
@@ -44,8 +45,15 @@ class _DetailState extends State<Detail> {
   Future<void> onEditUser(BuildContext context, int id) async {
     final b = await Navigator.pushNamed(context, Edit.routeName, arguments: id) ?? false;
     if (b) {
-      final snackBar = SnackBar(content: Text('User successfully updated!'), duration: Duration(seconds: 3));
-      scaffoldKey.currentState.showSnackBar(snackBar);
+      Fluttertoast.showToast(
+        msg: 'User successfully updated!',
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: CupertinoColors.activeGreen,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
     }
   }
 

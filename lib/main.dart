@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:myusers_flutter/ui/home.dart';
-import 'package:myusers_flutter/ui/create.dart';
-import 'package:myusers_flutter/ui/detail.dart';
-import 'package:myusers_flutter/ui/edit.dart';
+import 'package:myusers_cupertino_flutter/ui/home.dart';
+import 'package:myusers_cupertino_flutter/ui/create.dart';
+import 'package:myusers_cupertino_flutter/ui/detail.dart';
+import 'package:myusers_cupertino_flutter/ui/edit.dart';
 
 void main() => runApp(MyApp());
 

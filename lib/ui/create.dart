@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:myusers_flutter/shared/widget/input-field.dart';
-import 'package:myusers_flutter/services/user.service.dart';
-import 'package:myusers_flutter/validator/general.dart';
-import 'package:myusers_flutter/helpers.dart';
+import 'package:myusers_cupertino_flutter/shared/widget/input-field.dart';
+import 'package:myusers_cupertino_flutter/services/user.service.dart';
+import 'package:myusers_cupertino_flutter/validator/general.dart';
+import 'package:myusers_cupertino_flutter/helpers.dart';
 
 class Create extends StatefulWidget {
   Create({Key key, this.title}) : super(key: key);

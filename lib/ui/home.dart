@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:myusers_flutter/services/user.service.dart';
-import 'package:myusers_flutter/models/user.dart';
-import 'package:myusers_flutter/helpers.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:myusers_cupertino_flutter/services/user.service.dart';
+import 'package:myusers_cupertino_flutter/models/user.dart';
+import 'package:myusers_cupertino_flutter/helpers.dart';
 import 'create.dart';
 import 'detail.dart';
 
@@ -24,7 +25,7 @@ class _HomeState extends State<Home> {
   List<User> ls = <User>[];
   int page = 1;
   bool isLoading = false;
-  final GlobalKey<RefreshIndicatorState> refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
+  final GlobalKey refreshIndicatorKey = GlobalKey();
   final GlobalKey scaffoldKey = GlobalKey();
 
   @override
@@ -104,8 +105,15 @@ class _HomeState extends State<Home> {
   Future<void> onCreateUser() async {
     final b = await Navigator.pushNamed(context, Create.routeName) ?? false;
     if (b) {
-      //final snackBar = SnackBar(content: Text('User successfully created!'), duration: Duration(seconds: 3));
-      //scaffoldKey.currentState.showSnackBar(snackBar);
+      Fluttertoast.showToast(
+        msg: 'User successfully created!',
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: CupertinoColors.activeGreen,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
     }
   }
 
@@ -119,57 +127,59 @@ class _HomeState extends State<Home> {
         bottom: 8,
         right: 8,
       ),
-      child: Row(
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: Image.network(
-              o.avatar,
-              fit: BoxFit.cover,
-              width: 76,
-              height: 76,
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    o.email,
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: CupertinoColors.black
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8)
-                  ),
-                  Text(
-                    '${o.firstName} ${o.lastName}',
-                  ),
-                ],
+      child: CupertinoButton(
+        child: Row(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: Image.network(
+                o.avatar,
+                fit: BoxFit.cover,
+                width: 76,
+                height: 76,
               ),
             ),
-          ),
-          CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: const Icon(
-              CupertinoIcons.eye,
-              semanticLabel: 'Details',
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      o.email,
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: CupertinoColors.black
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8)
+                    ),
+                    Text(
+                      '${o.firstName} ${o.lastName}',
+                    ),
+                  ],
+                ),
+              ),
             ),
-            onPressed: () async {
-              final b = await Navigator.pushNamed(context, Detail.routeName, arguments: o.id) ?? false;
-              if (b) {
-                //final snackBar = SnackBar(content: Text('User successfully deleted!'), duration: Duration(seconds: 3));
-                //scaffoldKey.currentState.showSnackBar(snackBar);
-                load();
-              }
-            },
-          ),
-        ],
+          ],
+        ),
+        onPressed: () async {
+          final b = await Navigator.pushNamed(context, Detail.routeName, arguments: o.id) ?? false;
+          if (b) {
+            Fluttertoast.showToast(
+              msg: 'User successfully deleted!',
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: CupertinoColors.activeGreen,
+              textColor: Colors.white,
+              fontSize: 16.0
+            );
+            load();
+          }
+        },
       ),
     );
 
@@ -182,12 +192,12 @@ class _HomeState extends State<Home> {
         row,
         Padding(
           padding: const EdgeInsets.only(
-            left: 100,
+            left: 120,
             right: 16,
           ),
           child: Container(
+            color: CupertinoColors.opaqueSeparator,
             height: 1,
-            color: CupertinoColors.inactiveGray
           ),
         ),
       ],

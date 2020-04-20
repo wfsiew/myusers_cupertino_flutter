@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'dart:async';
-import 'package:myusers_flutter/models/user.dart';
-import 'package:myusers_flutter/constants.dart';
+import 'package:myusers_cupertino_flutter/models/user.dart';
+import 'package:myusers_cupertino_flutter/constants.dart';
 
 final String url = '${Constants.USERS_URL}';
 final Dio dio = Dio(BaseOptions(connectTimeout: 5000, receiveTimeout: 15000));
