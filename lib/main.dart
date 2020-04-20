@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:myusers_cupertino_flutter/ui/home.dart';
 import 'package:myusers_cupertino_flutter/ui/create.dart';
 import 'package:myusers_cupertino_flutter/ui/detail.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: CupertinoThemeData(
-        primaryColor: CupertinoColors.activeBlue
+        primaryColor: CupertinoColors.activeBlue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: routes
