@@ -135,8 +135,6 @@ class _HomeState extends State<Home> {
               child: Image.network(
                 o.avatar,
                 fit: BoxFit.cover,
-                width: 76,
-                height: 76,
               ),
             ),
             Expanded(
