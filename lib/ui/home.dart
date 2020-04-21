@@ -149,7 +149,10 @@ class _HomeState extends State<Home> {
                     Text(
                       o.email,
                       style: TextStyle(
-                        fontSize: 18.0,
+                        color: Color.fromRGBO(0, 0, 0, 0.8),
+                        fontSize: 18,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
                     const Padding(
@@ -157,6 +160,10 @@ class _HomeState extends State<Home> {
                     ),
                     Text(
                       '${o.firstName} ${o.lastName}',
+                      style: TextStyle(
+                        color: Color(0xFF8E8E93),
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ],
                 ),

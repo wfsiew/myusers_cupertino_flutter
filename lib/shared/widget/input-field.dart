@@ -79,7 +79,7 @@ class _InputFieldState extends State<InputField> {
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderSide: _kDefaultRoundedBorderSide,
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+          borderRadius: BorderRadius.all(Radius.circular(50.0)),
         ),
         labelText: label,
         suffixIcon: controller.text.isEmpty ? null : 
