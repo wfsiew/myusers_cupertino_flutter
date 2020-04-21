@@ -150,7 +150,6 @@ class _HomeState extends State<Home> {
                       o.email,
                       style: TextStyle(
                         fontSize: 18.0,
-                        color: CupertinoColors.black
                       ),
                     ),
                     const Padding(
@@ -235,6 +234,7 @@ class _HomeState extends State<Home> {
         CupertinoSliverNavigationBar(
           largeTitle: Text(widget.title),
           trailing: CupertinoButton(
+            padding: EdgeInsets.all(4.0),
             child: Icon(CupertinoIcons.add),
             onPressed: () async {
               await onCreateUser();
