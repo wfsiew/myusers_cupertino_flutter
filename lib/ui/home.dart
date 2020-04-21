@@ -135,6 +135,8 @@ class _HomeState extends State<Home> {
               child: Image.network(
                 o.avatar,
                 fit: BoxFit.cover,
+                width: 70,
+                height: 70,
               ),
             ),
             Expanded(
@@ -190,7 +192,7 @@ class _HomeState extends State<Home> {
         row,
         Padding(
           padding: const EdgeInsets.only(
-            left: 120,
+            left: 112,
             right: 16,
           ),
           child: Container(
